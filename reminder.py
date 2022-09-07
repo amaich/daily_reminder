@@ -16,6 +16,8 @@ while True:
     for i in reminds:
         remind_time = i[3]
         remind_time = remind_time.strftime("%H:%M")
+        if i[4] != True:
+            print(i[4])
         if remind_time == time_now:
             send = f'https://api.telegram.org/bot{TOKEN}/sendmessage?chat_id={i[1]}&text={i[2]} {i[3]}'
             requests.post(send)
