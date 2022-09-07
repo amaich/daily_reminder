@@ -19,7 +19,8 @@ while True:
         if remind_time == time_now:
             send = f'https://api.telegram.org/bot{TOKEN}/sendmessage?chat_id={i[1]}&text={i[2]} {i[3]}'
             requests.post(send)
-            db.dele(conn, cursor, i[3])
+            if i[4] != True:
+                db.dele(conn, cursor, i[3])
     time.sleep(60)
         
     
